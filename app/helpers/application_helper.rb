@@ -5,5 +5,6 @@ module ApplicationHelper
 
   def mobile?
     params[:mobile] or cookies[:mobile]
+    true
   end
 end

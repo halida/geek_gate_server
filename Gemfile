@@ -17,8 +17,8 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-  gem 'therubyracer', platform: :ruby
   gem 'uglifier', '>= 1.0.3'
+  gem 'therubyracer', platform: :ruby
 end
 
 gem 'unicorn'
@@ -26,6 +26,7 @@ gem 'unicorn'
 gem 'jquery-rails'
 gem 'haml'
 gem "haml-rails"
+gem 'coffee-filter'
 gem "actionmailer_inline_css"
 gem 'country_select'
 gem 'chosen-rails'

@@ -5,17 +5,19 @@
     = stylesheet_link_tag "application", media: "all"
 
     - if mobile?
-      = stylesheet_link_tag "jquery.mobile-1.1.0.min.css"
       = javascript_include_tag "cordova-1.7.0rc1.js"
+      = stylesheet_link_tag "jquery.mobile-1.1.0.min.css"
       = javascript_include_tag "jquery-1.6.4.min.js"
       = javascript_include_tag "jquery.mobile-1.1.0.min.js"
+      = javascript_include_tag "barcodescanner.js"
     - else
       = javascript_include_tag "jquery-1.6.4.min.js"
 
-    = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body
     .notice= notice
     .alert= alert
     = yield
+    = javascript_include_tag "application"
+    = yield(:script)

@@ -91,6 +91,9 @@ GEM
       thor (~> 0.14)
     chunky_png (1.2.5)
     client_side_validations (3.1.4)
+    coffee-filter (0.1.1)
+      coffee-script (>= 2.2.0)
+      haml (>= 3.0.18)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -261,6 +264,7 @@ DEPENDENCIES
   capybara
   chosen-rails
   client_side_validations
+  coffee-filter
   coffee-rails (~> 3.2.1)
   compass-rails
   country_select

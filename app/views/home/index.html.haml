@@ -1,5 +1,10 @@
 %h1 Welcome to 0x65 Geek Gate!
 %p
-  = form_tag use_tickets_path do
+  = form_tag use_tickets_path, id: "use_ticket" do
     = text_field_tag :code
+    %input{type: "button", value: "scan your code", id: "scan_btn"}
     = submit_tag "enter your code"
+
+- content_for :script do
+  :coffeescript
+    $ -> init_scanner('#scan_btn')
