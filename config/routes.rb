@@ -1,6 +1,10 @@
 GeekGateServer::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  devise_for :users
+
   root to: 'home#index'
-  match '/admin', to: "home#admin"
+  match "/control", to: "home#control"
 
   resources :authors
   resources :questions
