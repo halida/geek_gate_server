@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Printed at:
+  = @ticket.printed_at
+%p
+  %b Expired at:
+  = @ticket.expired_at
+%p
+  %b Type:
+  = @ticket.type
+
+= link_to 'Edit', edit_ticket_path(@ticket)
+\|
+= link_to 'Back', tickets_path

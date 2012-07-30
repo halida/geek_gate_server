@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @author.name
+%p
+  %b Geek:
+  = @author.geek_id
+%p
+  %b Avatar:
+  = @author.avatar
+%p
+  %b Description:
+  = @author.description
+
+= link_to 'Edit', edit_author_path(@author)
+\|
+= link_to 'Back', authors_path
