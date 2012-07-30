@@ -1,0 +1,4 @@
+- if @ticket.expired?
+  %h1 ticket is expired at #{format_date @ticket.expired_at}
+- elsif @ticket.used?
+  %h1 ticket is used at: #{format_date @ticket.used_at}

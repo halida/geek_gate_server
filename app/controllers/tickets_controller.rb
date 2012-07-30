@@ -1,4 +1,21 @@
 class TicketsController < ApplicationController
+  def question
+    @ticket = Ticket.find(params[:id])
+    if request.post?
+      @result = @ticket.check_answer params[:answer]
+      render "result"
+    else  
+      @question = @ticket.get_question!
+    end
+  end
+
+  def use
+    @ticket = Ticket.where(code: params[:code]).first
+    return render "nocode" unless @ticket
+    return render "useless" unless @ticket.can_use?
+    redirect_to question_ticket_path(@ticket)
+  end
+
   # GET /tickets
   # GET /tickets.json
   def index
@@ -40,11 +57,11 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(params[:ticket])
+    @ticket = Ticket.generate
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to "/admin", notice: "Ticket was successfully created: #{@ticket.code}" }
         format.json { render json: @ticket, status: :created, location: @ticket }
       else
         format.html { render action: "new" }

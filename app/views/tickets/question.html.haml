@@ -1,0 +1,9 @@
+= form_tag do
+  = hidden_field_tag :question_id, @question.id
+  %h1= @question.title
+  %p= @question.description
+  - @question.options.each_with_index do |opt, i|
+    %label
+      = radio_button_tag :answer, i
+      = opt
+  = submit_tag "finished!"

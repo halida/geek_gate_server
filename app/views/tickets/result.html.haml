@@ -1,0 +1,11 @@
+- if @result
+  %h1 Congratuations!
+  %p You have pass the Geek level test!
+  %p We are print another bonus ticket for you: #{@result.code}
+
+- else
+  %h1 Sorry!
+  %p You have failed the test.
+  %p Hope you will win next time~
+
+= button_to "return", root_path, method: :get

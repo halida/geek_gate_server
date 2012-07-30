@@ -1,9 +1,18 @@
 GeekGateServer::Application.routes.draw do
   root to: 'home#index'
+  match '/admin', to: "home#admin"
 
   resources :authors
   resources :questions
-  resources :tickets
+  resources :tickets do 
+    collection do 
+      post :use
+    end
+    member do 
+      get :question
+      post :question
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

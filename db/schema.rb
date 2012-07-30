@@ -36,10 +36,15 @@ ActiveRecord::Schema.define(:version => 20120730015851) do
   create_table "tickets", :force => true do |t|
     t.datetime "printed_at"
     t.datetime "expired_at"
-    t.string   "type"
+    t.datetime "used_at"
+    t.string   "state"
     t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "question_id"
+    t.boolean  "right",          :default => false
+    t.string   "answer"
+    t.integer  "next_ticket_id"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
 end
